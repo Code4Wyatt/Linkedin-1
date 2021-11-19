@@ -55,7 +55,6 @@ const SinglePost = (props) => {
   };
 
   return (
-    <>
       <div className="container-post">
         <div className="padding-jumbo">
           <div className="row">
@@ -128,31 +127,25 @@ const SinglePost = (props) => {
             <span className="feed-buttons">
               <i class="bi bi-hand-thumbs-up mr-2"></i>Like
             </span>
-            <div className="feed-buttons" style={{ cursor: "pointer" }}>
+            <span className="feed-buttons" style={{ cursor: "pointer" }}>
               <AddComment
                 id={props.element._id}
                 userId={props.element.user._id}
                 fetchComments={fetchComments}
               />
-              <span>Comment</span>
-            </div>
-            <span className="feed-buttons">
-              <i class="bi bi-share-fill mr-2"></i>Share
-          <div className="d-flex flex-column  mb-2 col-8 mt-3">
-            <Link to={"/profile/" + props.element.user._id}>
-              <span className="span-big">
-                {props.element.user.name} {props.element.user.surname}
-              </span>
-            </Link>
-
-            <span className="span-small text-muted">
-              {props.element.user.title}
+              Comment
             </span>
             <span className="feed-buttons">
-              <i class="bi bi-cursor-fill mr-2"></i>Send
+              <i class="bi bi-share-fill mr-2"></i>
+              Share
+            </span>
+            <span className="feed-buttons">
+              <i class="bi bi-cursor-fill mr-2"></i>
+              Send
             </span>
           </div>
-          {comments.length !== -1 &&
+        <div>
+        {comments.length !== -1 &&
         comments.map((c) => (
           <div>
             < div className="row">
@@ -190,8 +183,8 @@ const SinglePost = (props) => {
           </div>
         ))}
         </div>
+        </div>
       </div>
-    </>
   );
 };
 

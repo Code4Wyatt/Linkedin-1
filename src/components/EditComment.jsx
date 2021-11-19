@@ -27,7 +27,7 @@ const dataSet = (valname, valdata) => {
 
 const sendData = (e) => {
     e.preventDefault()
-    editComment(),
+    editComment()
     handleClose()
 }
 
