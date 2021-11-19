@@ -12,7 +12,7 @@ export default function AddComment({fetchComments, id, profile}) {
 
  const [Comment, setComment] = useState({
     comment: "",
-    user: profile._id.toString()
+    user: profile._id
  })
 
  const sendComments = (e) => {
