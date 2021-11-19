@@ -2,13 +2,12 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import { Col, Row } from "react-bootstrap";
 import PopUp from "./PopUp";
 import { useParams } from "react-router";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import ImageModal from "./ImageModal";
 
 const Jumbo = (props) => {
-
   const params = useParams();
-  const [imageModal, setImageModal] = useState(false)
+  const [imageModal, setImageModal] = useState(false);
 
   return (
     <div className="jumbo-container">
@@ -18,10 +17,27 @@ const Jumbo = (props) => {
       <div className="padding-jumbo">
         <div className="image-container">
           <div className="img-profile-container">
-            <img className="img-profile" onClick={() => setImageModal(true)} src={props.user.image} />
+            <img
+              className="img-profile"
+              onClick={() => setImageModal(true)}
+              src={props.user.image}
+            />
           </div>
-          {params.id == "619234e538541a787a13c554" && <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal} />}
-          {params.id == "619234e538541a787a13c554" && <PopUp getExperience={props.getExperience} setGetExperience={props.setGetExperience} fetchUser={props.fetchUser} obj={props.user} />}
+          {params.id == "619234e538541a787a13c554" && (
+            <ImageModal
+              fetchUser={props.fetchUser}
+              imageModal={imageModal}
+              setImageModal={setImageModal}
+            />
+          )}
+          {params.id == "619234e538541a787a13c554" && (
+            <PopUp
+              getExperience={props.getExperience}
+              setGetExperience={props.setGetExperience}
+              fetchUser={props.fetchUser}
+              obj={props.user}
+            />
+          )}
         </div>
         <Row>
           <Col md={8} className="color">
@@ -39,7 +55,12 @@ const Jumbo = (props) => {
             <div className="d-flex">
               <div className="button-blue">Open To</div>
               <div className="button-transparent text-muted">Add Section</div>
-              <div className="button-more text-muted">More</div>
+              <div className="button-more text-muted">
+                 More
+              </div>
+              <div className="button-more text-muted">
+                 <a href={`https://strive-linkedin.herokuapp.com/profile/${props.user._id}/CV`}>CV</a>
+              </div>
             </div>
           </Col>
           <Col md={4} className="color">
