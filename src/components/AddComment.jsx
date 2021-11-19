@@ -3,7 +3,7 @@ import {Modal, Button, Row, Col, Form} from "react-bootstrap"
 import {useState, useEffect} from "react"
 import {FaRegCommentDots} from "react-icons/fa"
 
-export default function AddComment({fetchComments, id, userId}) {
+export default function AddComment({fetchComments, id, profile}) {
  const [show, setShow] = useState(false)
  const handleClose = () => setShow(false)
  const handleShow = () => setShow(true)
@@ -12,8 +12,7 @@ export default function AddComment({fetchComments, id, userId}) {
 
  const [Comment, setComment] = useState({
     comment: "",
-    userId: "",
-    id: id,
+    user: profile._id.toString()
  })
 
  const sendComments = (e) => {
@@ -22,7 +21,7 @@ export default function AddComment({fetchComments, id, userId}) {
      handleClose()
  }
  const commentSet = (valname, valdata) => {
-     setComment({... Comment, [valname]: valdata })
+     setComment({...Comment, user: profile._id, [valname]: valdata })
  }
  const addComment = async () => {
 try {

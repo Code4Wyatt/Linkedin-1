@@ -154,7 +154,7 @@ const SinglePost = (props) => {
             <span className="feed-buttons" style={{ cursor: "pointer" }}>
               <AddComment
                 id={props.element._id}
-                userId={props.element.user._id}
+                profile={props.profile}
                 fetchComments={fetchComments}
               />
               Comment
