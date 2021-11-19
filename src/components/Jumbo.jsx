@@ -45,6 +45,7 @@ const Jumbo = (props) => {
               {props.user.name} {props.user.surname}
             </h1>
             <div className="font-medium">{props.user.title}</div>
+            <div className="font-medium">{props.user.bio}</div>
             <div className="d-flex flex-column">
               <span className="text-muted font-small">
                 {props.user.area}{" "}
