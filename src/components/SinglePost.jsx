@@ -14,6 +14,7 @@ const SinglePost = (props) => {
   const [comments, setComments] = useState([]);
 
   const [show, setShow] = useState(false);
+  const [likes , setLikes] = useState(0);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -53,6 +54,28 @@ const SinglePost = (props) => {
       console.log(error);
     }
   };
+
+
+  const fetchLikes = async () => {
+    try {
+      let response = await fetch(`https://strive-linkedin.herokuapp.com/posts/${props.element._id}/like`,
+      {
+        method: "POST",
+        body: JSON.stringify({user: props.profile._id}),
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }
+      
+      )
+      if(response.ok){
+        let data = await response.json()
+        setLikes(data.data.likes.length)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
       <div className="container-post">
@@ -122,9 +145,10 @@ const SinglePost = (props) => {
             </div>
           )}
           <div className="translation">See Translation</div>
+          <div>{likes}</div>
           <hr />
           <div className="d-flex justify-content-around">
-            <span className="feed-buttons">
+            <span className="feed-buttons" onClick={fetchLikes}>
               <i class="bi bi-hand-thumbs-up mr-2"></i>Like
             </span>
             <span className="feed-buttons" style={{ cursor: "pointer" }}>
