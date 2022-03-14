@@ -22,7 +22,7 @@ const LeftSideBarCardProfile = ({profile}) => {
         </div>
         
 
-        <h6 className="text-center my-name">{profile.name}{" "}{profile.surname}</h6>
+        <h6 className="text-center my-name">Paul Murray</h6>
         <p className="text-center my-title border-bottom pb-3">{profile.title}</p>
         <div className="views d-flex flex-column px-3 border-bottom mt-3">
           <div className="views-one d-flex justify-content-between">
